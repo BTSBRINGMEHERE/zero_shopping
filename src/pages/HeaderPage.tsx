@@ -1,9 +1,6 @@
-import { Outlet } from "react-router-dom"
 import HeaderEtc from "../components/header/HeaderEtc"
 import HeaderMain from "../components/header/HeaderMain"
 import HeaderSelect from "../components/header/HeaderSelect"
-import FooterPage from "./FooterPage"
-import MainSectionPage from "./MainSectionPage"
 
 const HeaderPage = () => {
   return (

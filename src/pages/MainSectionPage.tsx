@@ -6,7 +6,6 @@ const MainSectionPage = () => {
     <>
       <section className="h-max pt-16 flex flex-col">
         <MainCarousel />
-
         <MainSection />
       </section>
     </>
