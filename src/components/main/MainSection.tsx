@@ -1,4 +1,17 @@
+import { useEffect } from "react"
+import { useAppDispatch, useAppSelector } from "../../store/hooks"
+import { fetchStore } from "../../store/storeSlice"
+
 const MainSection = () => {
+  const { fakeStore } = useAppSelector((state) => state.store)
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    dispatch(fetchStore())
+  }, [dispatch])
+
+  console.log(fakeStore)
+
   return (
     <section className="pt-6 lg:pt-12 pb-4 lg:pb-8 px-4 xl:px-2 mt-10 xl:container mx-auto h-max">
       <h2 className="mb-5 lg:mb-8 text-3xl lg:text-4xl text-center font-bold">

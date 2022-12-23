@@ -16,9 +16,9 @@ export interface StoreListType {
 }
 
 export const fetchStoreAPI = async () => {
-  const requestURL = "https://fakestoreapi.com/products"
+  const REQUESTURL = "https://fakestoreapi.com/products"
 
-  const response = await create.get<StoreListType>(requestURL)
+  const response = await create.get<StoreListType>(REQUESTURL)
 
-  return response.data
+  return response
 }

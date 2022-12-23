@@ -4,15 +4,15 @@ import type { PayloadAction } from "@reduxjs/toolkit"
 
 export const fetchStore = createAsyncThunk("store/fetchStore", async () => {
   const response = await fetchStoreAPI()
-  return response
+  return response.data
 })
 
 interface StoreState {
-  stores: StoreListType
+  fakeStore: StoreListType
 }
 
 const initialState = {
-  stores: {
+  fakeStore: {
     id: 0,
     title: "",
     price: 0,
@@ -33,8 +33,8 @@ const storeSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(
       fetchStore.fulfilled,
-      (state, action: PayloadAction<StoreListType>) => {
-        state.stores = action.payload
+      (state, action: PayloadAction<StoreListType>): void => {
+        state.fakeStore = action.payload
       },
     )
   },
