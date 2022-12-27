@@ -4,7 +4,7 @@ import { StoreListType } from "../../api/storeAPI"
 import { useAppDispatch, useAppSelector } from "../../store/hooks"
 import { fetchStore } from "../../store/storeSlice"
 
-const Fashion = () => {
+const Digital = () => {
   const { fakeStore } = useAppSelector((state) => state.store)
 
   const dispatch = useAppDispatch()
@@ -13,31 +13,28 @@ const Fashion = () => {
     dispatch(fetchStore())
   }, [dispatch])
 
-  const fashion = new Array(0)
+  const digit = new Array(0)
 
   for (let i = 0; i < 20; i++) {
     if (fakeStore[i] !== undefined)
-      if (
-        fakeStore[i].category === "men's clothing" ||
-        fakeStore[i].category === "women's clothing"
-      ) {
-        fashion.push(fakeStore[i])
+      if (fakeStore[i].category === "electronics") {
+        digit.push(fakeStore[i])
       }
   }
 
-  if (!fashion) {
+  if (!digit) {
     return (
       <>
         <section className="pt-4 lg:pt-5 pb-4 lg:pb-8 px-4 xl:px-2 xl:container mx-auto mt-[48px]">
           <div className="text-sm breadcrumbs">
             <ul>
               <li>홈</li>
-              <li>패션</li>
+              <li>디지털</li>
             </ul>
           </div>
           <article className="pt-2 lg:pt-4 pb-4 lg:pb-8 px-4 xl:px-2 mb-20 xl:container mx-auto">
             <h2 className="mb-5 lg:mb-8 text-3xl lg:text-4xl text-center font-bold">
-              패션
+              디지털
             </h2>
             <div
               className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 item_list"
@@ -71,18 +68,18 @@ const Fashion = () => {
         <div className="text-sm breadcrumbs">
           <ul>
             <li>홈</li>
-            <li>패션</li>
+            <li>디지털</li>
           </ul>
         </div>
         <article className="pt-2 lg:pt-4 pb-4 lg:pb-8 px-4 xl:px-2 mb-20 xl:container mx-auto">
           <h2 className="mb-5 lg:mb-8 text-3xl lg:text-4xl text-center font-bold">
-            패션
+            디지털
           </h2>
           <div
             className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 item_list"
             data-scroll="false"
           >
-            {fashion.map((item: StoreListType, idx: number) => (
+            {digit.map((item: StoreListType, idx: number) => (
               <Link
                 className="card card-bordered border-gray-200 dark:border-gray-800 card-compact lg:card-normal"
                 to={`/product/${item.id}`}
@@ -97,7 +94,7 @@ const Fashion = () => {
                 </figure>
                 <div className="card-body bg-gray-100 dark:bg-gray-700">
                   <p className="card-title text-base">{item.title}</p>
-                  <p className="text-base">{item.price}</p>
+                  <p className="text-base">${item.price}</p>
                 </div>
               </Link>
             ))}
@@ -108,4 +105,4 @@ const Fashion = () => {
   )
 }
 
-export default Fashion
+export default Digital

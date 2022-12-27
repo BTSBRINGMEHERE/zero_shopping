@@ -9,7 +9,7 @@ const MainCarousel = () => {
       className="h-max"
       autoPlay={true}
       infiniteLoop={true}
-      interval={5000}
+      interval={3000}
     >
       <div>
         <img src={Karina_santa} />
